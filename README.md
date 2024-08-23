@@ -1,7 +1,7 @@
 create database tours;
-
+<br>
 use tours;
-
+<br>
 create table website (
 website_id VARCHAR(20) primary key,
 name VARCHAR(20),
@@ -9,7 +9,7 @@ section VARCHAR(20),
 links VARCHAR(20),
 Agency_logo BLOB
 );
-
+<br>
 create table users (
 User_id VARCHAR(20) primary key,
 Admin_id VARCHAR(20),
@@ -26,7 +26,7 @@ Updated_by DATETIME,
 Deleted_on VARCHAR(50),
 Deleted_by DATETIME
 );
-
+<br>
 create table tourists (
 Tourist_id VARCHAR(50) primary key,
 Nationality VARCHAR(20),
@@ -39,7 +39,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Tourist_id) references users(User_id)
 );
-
+<br>
 create table tourist_guide (
 Tourist_id VARCHAR(50) primary key,
 Preference VARCHAR(20),
@@ -51,7 +51,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Tourist_id) references tourists(Tourist_id)
 );
-
+<br>
 create table locations (
 Location_id VARCHAR(50) primary key,
 Place_name VARCHAR(50),
@@ -64,7 +64,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Location_id) references tourists(Tourist_id)
 );
-
+<br>
 create table agencies (
 Agency_id VARCHAR(50) primary key,
 Name VARCHAR(50),
@@ -78,7 +78,7 @@ Updated_by DATETIME,
 Deleted_on VARCHAR(50),
 Deleted_by DATETIME
 );
-
+<br>
 create table Accomodations (
 Accomodation_id VARCHAR(50) primary key,
 Accomodation_details VARCHAR(50),
@@ -94,7 +94,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Accomodation_id) references agencies(Agency_id)
 );
-
+<br>
 create table Accomodation_types (
 Accomodation_Type_id VARCHAR(50) primary key,
 Hotel_info VARCHAR(50),
@@ -115,7 +115,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Accomodation_Type_id) references Accomodations(Accomodation_id)
 );
-
+<br>
 create table reviews (
 Comment VARCHAR(200),
 Review_date DATETIME,
@@ -131,7 +131,7 @@ Deleted_by DATETIME,
 foreign key (Review_id) references agencies(Agency_id),
 foreign key (Review_id) references users(User_id)
 );
-
+<br>
 create table tours (
 Tour_id VARCHAR(50) primary key,
 Name VARCHAR(50),
@@ -148,7 +148,7 @@ Deleted_by DATETIME,
 foreign key (Tour_id) references agencies(Agency_id),
 foreign key (Tour_id) references users(User_id)
 );
-
+<br>
 create table policy_terms (
 Policy_terms_id VARCHAR(50) primary key,
 Policy_term_details text,
@@ -160,7 +160,7 @@ Deleted_on VARCHAR(50),
 Deleted_by DATETIME,
 foreign key (Policy_terms_id) references tours(Tour_id)
 );
-
+<br>
 create table bookings (
 Booking_id VARCHAR(50) primary key,
 Status VARCHAR(20),
